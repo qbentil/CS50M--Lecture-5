@@ -1,29 +1,23 @@
 import * as React from 'react';
-import {Button,  Text, View, StyleSheet } from 'react-native';
+
+import {Button, StyleSheet, Text, View} from 'react-native';
+
 import Constants from 'expo-constants';
-
-// You can import from local files
-import AssetExample from './components/AssetExample';
-
-// or any pure javascript modules available in npm
-import { Card } from 'react-native-paper';
+import contacts from './contacts'
 
 export default class App extends React.Component {
   state = {
-    showContact: false
+    showContacts: false,
   }
 
-  toggleContact = () =>{
-    this.setState({showContact: !this.state.showContact})
-    // console.log(this.state.showContact)
+  toggleContacts = () => {
+    this.setState(prevState => ({showContacts: !prevState.showContacts}))
   }
-  render(){
+
+  render() {
     return (
       <View style={styles.container}>
-        <Button 
-        title = "Toggle"
-         onPress ={this.toggleContact}
-         style={styles.paragraph} />
+        <Button title="toggle contacts" onPress={this.toggleContacts} />
       </View>
     );
   }
@@ -32,15 +26,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    backgroundColor: '#fff',
     paddingTop: Constants.statusBarHeight,
-    backgroundColor: '#ecf0f1',
-    padding: 8,
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
   },
 });
