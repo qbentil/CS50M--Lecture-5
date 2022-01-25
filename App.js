@@ -1,3 +1,4 @@
+//Can you please document by commenting to enhance readability?... lol
 import * as React from 'react';
 
 import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
