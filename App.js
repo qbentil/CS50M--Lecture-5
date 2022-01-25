@@ -16,6 +16,8 @@ export default class App extends React.Component {
   }
 
   render() {
+    if(this.state.showContacts)
+    {
     return (
       <View style={styles.container}>
         <Button title="toggle contacts" onPress={this.toggleContacts} />
@@ -26,6 +28,12 @@ export default class App extends React.Component {
             })
           }
         </ScrollView>
+      </View>
+    );
+    }
+    return (
+      <View style={styles.container}>
+        <Button title="toggle contacts" onPress={this.toggleContacts} />
       </View>
     );
   }
