@@ -16,24 +16,19 @@ export default class App extends React.Component {
   }
 
   render() {
-    if(this.state.showContacts)
-    {
     return (
       <View style={styles.container}>
         <Button title="toggle contacts" onPress={this.toggleContacts} />
-        <ScrollView>
-          {
-            contacts.map(contact => {
-              return <Row {...contact} />
-            })
+          {this.state.showContacts ?(
+            <ScrollView>
+              {
+                contacts.map(contact => {
+                  return <Row {...contact} />
+                })
+              }
+            </ScrollView>
+          ): null
           }
-        </ScrollView>
-      </View>
-    );
-    }
-    return (
-      <View style={styles.container}>
-        <Button title="toggle contacts" onPress={this.toggleContacts} />
       </View>
     );
   }
