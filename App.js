@@ -3,7 +3,8 @@ import * as React from 'react';
 import {Button, StyleSheet, Text, View} from 'react-native';
 
 import Constants from 'expo-constants';
-import contacts from './contacts'
+
+// import contacts from './contacts'
 
 export default class App extends React.Component {
   state = {
