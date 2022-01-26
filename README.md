@@ -24,3 +24,11 @@
 &nbsp; &nbsp;○ Immutability is important<br>
 **REF**  👉🏿 https://facebook.github.io/react-native/docs/flatlist.html<br>
 
+### SectionList
+● Like FlatList with additional support for sections<br>
+● Instead of data prop, define sections<br>
+&nbsp; &nbsp;○ Each section has its own data array<br>
+&nbsp; &nbsp;○ Each section can override the renderItem function with their own custom renderer<br>
+● Pass a renderSectionHeader function for section headers <br>
+**REF**  👉🏿 https://facebook.github.io/react-native/docs/sectionlist.html <br>
+
