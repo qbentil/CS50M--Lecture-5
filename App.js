@@ -5,8 +5,10 @@ import contacts, {compareNames} from './contacts'
 
 import Constants from 'expo-constants';
 import FlatView from './components/FlatView'
-// import Row from './'
-import ScrollViewContacts from './components/ScrollViewContacts'
+import Row from './components/Row';
+import SectionListView from './components/SectionListView';
+
+imp
 
 export default class App extends React.Component {
   state = {
@@ -31,7 +33,8 @@ export default class App extends React.Component {
         <Button title="toggle contacts" onPress={this.toggleContacts} />
         <Button title="SORT CONTACTS" onPress={this.sort} />
           {this.state.showContacts &&(
-            <FlatView contacts = {contacts} /> /*{Using the FlatListView} */
+           <SectionListView contacts = {this.state.contacts} />  /*{Using the SectionListView} */
+            // <FlatView contacts = {contacts} /> /*{Using the FlatListView} */
             // <ScrollViewContacts contacts = {contacts} />  /*{Using the ScrollView} */
           )
           }
