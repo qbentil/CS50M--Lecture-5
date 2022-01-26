@@ -3,7 +3,9 @@ import * as React from 'react';
 import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
 
 import Constants from 'expo-constants';
-import Row from './'
+import FlatView from './components/FlatView'
+// import Row from './'
+import ScrollViewContacts from './components/ScrollViewContacts'
 import contacts from './components/Row'
 
 export default class App extends React.Component {
@@ -19,15 +21,10 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Button title="toggle contacts" onPress={this.toggleContacts} />
-          {this.state.showContacts ?(
-            <ScrollView>
-              {
-                contacts.map(contact => {
-                  return <Row {...contact} />
-                })
-              }
-            </ScrollView>
-          ): null
+          {this.state.showContacts &&(
+            // <FlatView contacts = {contacts} /> /*{Using the FlatListView} */
+            <ScrollViewContacts contacts = {contacts} />  /*{Using the ScrollView} */
+          )
           }
       </View>
     );
