@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import {Button, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Button, StyleSheet, Text, View} from 'react-native';
+import contacts, {compareNames} from './contacts'
 
 import Constants from 'expo-constants';
 import FlatView from './components/FlatView'
 // import Row from './'
 import ScrollViewContacts from './components/ScrollViewContacts'
-import contacts from './components/Row'
 
 export default class App extends React.Component {
   state = {
@@ -14,16 +14,25 @@ export default class App extends React.Component {
   }
 
   toggleContacts = () => {
-    this.setState(prevState => ({showContacts: !prevState.showContacts}))
+    this.setState(prevState => ({
+      showContacts: !prevState.showContacts
+    }))
+  }
+
+  sort = () => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts].sort(compareNames)
+    }))
   }
 
   render() {
     return (
       <View style={styles.container}>
         <Button title="toggle contacts" onPress={this.toggleContacts} />
+        <Button title="SORT CONTACTS" onPress={this.sort} />
           {this.state.showContacts &&(
-            // <FlatView contacts = {contacts} /> /*{Using the FlatListView} */
-            <ScrollViewContacts contacts = {contacts} />  /*{Using the ScrollView} */
+            <FlatView contacts = {contacts} /> /*{Using the FlatListView} */
+            // <ScrollViewContacts contacts = {contacts} />  /*{Using the ScrollView} */
           )
           }
       </View>
