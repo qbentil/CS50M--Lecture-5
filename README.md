@@ -1,9 +1,8 @@
 # Lists & User input
 
 ## Lists
-a. In web, browsers will automatically become scrollable for
-content with heights taller than the window
-b. In mobile, we need to do that manually. We can do that using the following Components from React Native
+● In web, browsers will automatically become scrollable for content with heights taller than the window <br>
+●  In mobile, we need to do that manually. We can do that using the following Components from React Native
     ○ ScrollView
     ○ ListView (deprecated)
     ○ FlatList, SectionList
