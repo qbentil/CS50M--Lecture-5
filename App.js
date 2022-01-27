@@ -8,8 +8,6 @@ import FlatView from './components/FlatView'
 import Row from './components/Row';
 import SectionListView from './components/SectionListView';
 
-imp
-
 export default class App extends React.Component {
   state = {
     showContacts: false,
