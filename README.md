@@ -1,4 +1,4 @@
-# Lists & User input
+# LECTURE 5 - Lists & User input
 
 ## Lists
 ● In web, browsers will automatically become scrollable for content with heights taller than the window <br>
