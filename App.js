@@ -6,6 +6,7 @@ import contacts, {compareNames} from './contacts'
 import Constants from 'expo-constants';
 import FlatView from './components/FlatView'
 import Row from './components/Row';
+import ScrollViewContacts from './components/ScrollViewContacts'
 import SectionListView from './components/SectionListView';
 
 export default class App extends React.Component {
