@@ -16,6 +16,14 @@ export default class App extends React.Component {
     contacts: contacts.sort(compareNames)
   }
 
+  phoneFormat = (input) => {//returns (###) ### ####
+    input = input.replace(/\D/g,'');
+    var size = input.length;
+    if (size>0) {input="("+input}
+    if (size>3) {input=input.slice(0,4)+") "+input.slice(4,11)}
+    if (size>6) {input=input.slice(0,9)+" " +input.slice(9)}
+    return input;
+}
   toggleContacts = () => {
     this.setState(prevState => ({
       showContacts: !prevState.showContacts
@@ -29,6 +37,7 @@ export default class App extends React.Component {
   }
 
   addContact = newContact => {
+    newContact.phone = this.phoneFormat(newContact.phone)
     this.setState(prevState => ({
       contacts: [...prevState.contacts, newContact]
       }))
