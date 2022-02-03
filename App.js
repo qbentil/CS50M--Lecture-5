@@ -25,7 +25,6 @@ export default class App extends React.Component {
       contacts: [...prevState.contacts].sort(compareNames)
     }))
   }
-
   render() {
     return (
       <View style={styles.container}>
