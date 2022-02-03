@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {Text, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 const Row = props =>{
     return (
@@ -10,5 +10,11 @@ const Row = props =>{
       </View>
     )
 }
+
+const styles = StyleSheet.create({
+  row: {
+    padding: 20,
+  }
+})  
 
 export default Row;
