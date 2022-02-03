@@ -4,6 +4,7 @@ import {Button, StyleSheet, Text, View} from 'react-native';
 import contacts, {compareNames} from './contacts'
 
 import Constants from 'expo-constants';
+import ContactForm from './components/ContactForm'
 import FlatView from './components/FlatView'
 import Row from './components/Row';
 import ScrollViewContacts from './components/ScrollViewContacts'
@@ -11,7 +12,8 @@ import SectionListView from './components/SectionListView';
 
 export default class App extends React.Component {
   state = {
-    showContacts: false,
+    showContacts: true,
+    contacts: contacts.sort(compareNames)
   }
 
   toggleContacts = () => {
@@ -23,21 +25,30 @@ export default class App extends React.Component {
   sort = () => {
     this.setState(prevState => ({
       contacts: [...prevState.contacts].sort(compareNames)
-    }))
+      }))
+  }
+
+  addContact = newContact => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, newContact]
+      }))
+    // Hide form
+    this.toggleContacts();
   }
   render() {
     return (
       <View style={styles.container}>
-        <Button title="toggle contacts" onPress={this.toggleContacts} />
-        <Button title="SORT CONTACTS" onPress={this.sort} />
-          {this.state.showContacts &&(
-           <SectionListView contacts = {this.state.contacts} />  /*{Using the SectionListView} */
-          )
+        <Button title="ADD CONTACT" onPress={this.toggleContacts} />
+          {
+            this.state.showContacts ?(
+            <SectionListView contacts = {this.state.contacts} />
+            ): <ContactForm onSubmit = {this.addContact} />
           }
       </View>
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
