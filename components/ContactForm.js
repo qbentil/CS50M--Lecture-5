@@ -3,6 +3,50 @@ import {Button, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react
 import Constants from 'expo-constants';
 import React from 'react'
 
+export default class ContactForm extends React.Component {
+  state = {
+    name: '',
+    phone: '',
+    isFormValid: false,
+  }
+
+  handleNameChange = name => {
+    this.setState({name})
+  }
+
+  handlePhoneChange = phone => {
+    this.setState({phone})
+  }
+  handleSubmit = () => {
+    this.props.onSubmit({...this.state})
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TextInput
+          style={styles.input}
+          returnKeyType='done'
+          value={this.state.name}
+          onChangeText={this.handleNameChange}
+          placeholder="Name"
+        />
+        <TextInput
+          keyboardType="numeric"
+          style={styles.input}
+          value={this.state.phone}
+          returnKeyType='done'
+          onChangeText={this.handlePhoneChange}
+          placeholder="Phone"
+        />
+        <TouchableOpacity style = {styles.button} onPress = {this.handleSubmit}>
+          <Text style = {styles.txt}>ADD CONTACT</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -43,44 +87,3 @@ const styles = StyleSheet.create({
     color: "#fff",
   }
 })
-
-export default class ContactForm extends React.Component {
-  state = {
-    name: '',
-    phone: '',
-    isFormValid: false,
-  }
-
-  handleNameChange = name => {
-    this.setState({name})
-  }
-
-  handlePhoneChange = phone => {
-    this.setState({phone})
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <TextInput
-          style={styles.input}
-          returnKeyType='done'
-          value={this.state.name}
-          onChangeText={this.handleNameChange}
-          placeholder="Name"
-        />
-        <TextInput
-          keyboardType="numeric"
-          style={styles.input}
-          value={this.state.phone}
-          returnKeyType='done'
-          onChangeText={this.handlePhoneChange}
-          placeholder="Phone"
-        />
-        <TouchableOpacity style = {styles.button} onPress = {() => console.log(0)}>
-          <Text style = {styles.txt}>ADD CONTACT</Text>
-        </TouchableOpacity>
-      </View>
-    )
-  }
-}
