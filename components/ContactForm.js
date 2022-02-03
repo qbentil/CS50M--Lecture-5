@@ -1,6 +1,6 @@
-import {Button, StyleSheet, TextInput, View} from 'react-native'
+import {Button, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
 
-import {Constants} from 'expo-constants'
+import Constants from 'expo-constants';
 import React from 'react'
 
 const styles = StyleSheet.create({
@@ -8,17 +8,40 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingTop: Constants.statusBarHeight,
+    paddingHorizontal: 5
   },
   input: {
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: '#8A39E1',
     minWidth: 100,
-    marginTop: 20,
+    height: 50,
+    marginVertical: 10,
     marginHorizontal: 20,
     paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingVertical: 10,
+    borderRadius: 3,
+    color: "#ECC488"
+  },
+  button: {
+    marginTop: 25,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: '#8A39E1',
+    backgroundColor: "#8A39E1",
+    minWidth: 100,
+    height: 50,
+    marginHorizontal: 20,
+    paddingHorizontal: 10,
+    paddingVertical: 10,
     borderRadius: 3,
   },
+  txt: {
+    fontSize: 18,
+    // fontWeight: "bold",
+    color: "#fff",
+  }
 })
 
 export default class ContactForm extends React.Component {
@@ -41,6 +64,7 @@ export default class ContactForm extends React.Component {
       <View style={styles.container}>
         <TextInput
           style={styles.input}
+          returnKeyType='done'
           value={this.state.name}
           onChangeText={this.handleNameChange}
           placeholder="Name"
@@ -49,10 +73,13 @@ export default class ContactForm extends React.Component {
           keyboardType="numeric"
           style={styles.input}
           value={this.state.phone}
+          returnKeyType='done'
           onChangeText={this.handlePhoneChange}
           placeholder="Phone"
         />
-        <Button title="Submit" />
+        <TouchableOpacity style = {styles.button} onPress = {() => console.log(0)}>
+          <Text style = {styles.txt}>ADD CONTACT</Text>
+        </TouchableOpacity>
       </View>
     )
   }
