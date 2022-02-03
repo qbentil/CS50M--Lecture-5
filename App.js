@@ -32,8 +32,6 @@ export default class App extends React.Component {
         <Button title="SORT CONTACTS" onPress={this.sort} />
           {this.state.showContacts &&(
            <SectionListView contacts = {this.state.contacts} />  /*{Using the SectionListView} */
-            //   <FlatView contacts = {contacts} /> /*{Using the FlatListView} */
-            //   <ScrollViewContacts contacts = {contacts} />  /*{Using the ScrollView} */
           )
           }
       </View>
