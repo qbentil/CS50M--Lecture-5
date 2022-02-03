@@ -1,4 +1,4 @@
-# LECTURE 5 - Lists & User input
+# LECTURE 4 - Lists & User input
 
 ## Lists
 ● In web, browsers will automatically become scrollable for content with heights taller than the window <br>
@@ -32,3 +32,12 @@
 ● Pass a renderSectionHeader function for section headers <br>
 **REF**  👉🏿 https://facebook.github.io/react-native/docs/sectionlist.html <br>
 
+
+# CONTINUES TO LECTURE 5 - User input & Debugging
+
+### User Input
+● Controlled vs uncontrolled components <br>
+&nbsp; &nbsp; &nbsp;○ Where is the source of truth for the value of an input? <br>
+● React recommends always using controlled components <br>
+● Pass value and onChangeText props <br>
+**REF**  👉🏿 https://facebook.github.io/react-native/docs/textinput.html <br>
