@@ -13,4 +13,8 @@ const FlatView = (props) => {
   )
 }
 
+FlatView.propTypes = {
+  contacts: PropTypes.array,
+}
+
 export default FlatView;
