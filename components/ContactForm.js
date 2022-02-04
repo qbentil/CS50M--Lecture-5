@@ -1,4 +1,4 @@
-import {Button, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
+import {KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity} from 'react-native'
 
 import Constants from 'expo-constants';
 import React from 'react'
@@ -10,19 +10,17 @@ export default class ContactForm extends React.Component {
     isFormValid: false,
   }
 
-  handleNameChange = name => {
-      this.setState({name}, this.validateForm)
-      console.log(this.state.isFormValid)
-  }
 
 
-  handlePhoneChange = phone => {
-    if(+phone >=0 && phone.length <=10)
-    {
-      this.setState({phone}, this.validateForm)
+  // Creating a generic for handler
+  getHandler = (key) => {
+    val =>{
+      this.setState({
+        [key]: val
+      })
     }
-    console.log(this.state.isFormValid)
   }
+
   validateForm = () =>{
     if (+this.state.phone >=0 && this.state.phone.length === 10 && this.state.name.length >= 3)
     {
@@ -42,12 +40,12 @@ export default class ContactForm extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView behavior = 'padding' style={styles.container}>
         <TextInput
           style={styles.input}
           returnKeyType='done'
           value={this.state.name}
-          onChangeText={this.handleNameChange}
+          onChangeText={this.getHandler('name')}
           placeholder="Name"
         />
         <TextInput
@@ -55,7 +53,7 @@ export default class ContactForm extends React.Component {
           style={styles.input}
           value={this.state.phone}
           returnKeyType='done'
-          onChangeText={this.handlePhoneChange}
+          onChangeText={this.getHandler('phone')}
           placeholder="Phone"
         />
         <TouchableOpacity 
@@ -65,7 +63,7 @@ export default class ContactForm extends React.Component {
           >
           <Text style = {styles.txt}>ADD CONTACT</Text>
         </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }
@@ -75,7 +73,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     paddingTop: Constants.statusBarHeight,
-    paddingHorizontal: 5
+    paddingHorizontal: 5,
+    justifyContent: "center"
   },
   input: {
     borderWidth: 1,
