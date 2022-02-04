@@ -15,4 +15,8 @@ const ScrollViewContacts = (props) => {
     )
 }
 
+ScrollViewContacts.propTypes = {
+  contacts: PropTypes.array,
+}
+
 export default ScrollViewContacts;
