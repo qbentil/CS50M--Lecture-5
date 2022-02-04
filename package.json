@@ -1,4 +1,10 @@
 {
+  "name": "phonebook",
+  "slug": "phonebook",
+  "owner": "qbentil",
+  "project-id": "86aa0b2e-2163-4108-a943-b54cb831fa02",
+  "githuburl": "https://github.com/qbentil/CS50M--Lecture-5",
+  "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
