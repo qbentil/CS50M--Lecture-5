@@ -45,7 +45,6 @@
 
 <!-- Demo -->
 ## Live Demo 
-This simple phone book App has been hosted on Expo
+This simple phone book App has been hosted in my Expo snacks
 
-<!-- 📝  Manifest: https://exp.host/@qbentil/snack-9ef2a369-9a0a-4069-87e3-97a067a7d8cb/index.exp?sdkVersion=43.0.0 Learn more: https://expo.fyi/manifest-url
-⚙️   Project page: https://expo.dev/@qbentil/snack-9ef2a369-9a0a-4069-87e3-97a067a7d8cb Learn more: https://expo.fyi/project-page -->
+⚙️   Project page: https://snack.expo.dev/@qbentil/lecture-5---contacts
